@@ -12,7 +12,7 @@ var crypto = require('crypto');
 var algorithm = 'aes-256-ctr';
 var passwords = {  
   test : { status: '971dd7cca6593b', secret: '8c1cc0dff905671d697991d3d8f3f7ba70a6031d38aec8c5223c', cracked : false },
-  level12 : { status: 'cc00ca55e793e4', secret: 'd701dd46b8cfb825bddd2f76c07a96ea9dd49a9da58342a05e4b', cracked : false },
+  level12 : { status: 'ab7450f9a9bbc8', secret: 'b07547eaf6e79415ceee7fba44edc015da6357475d61583a3b2f', cracked : false },
   level24 : { status: 'f7e41b9b43efd8', secret: 'ece50c881cb3847aeed244f268381ef66f83a46ff3e031efc7c9', cracked : false },
   level48 : { status: '28a7dab8d70353', secret: '33a6cdab885f0f7aa788e1a36fbd04bbe1c462b4082c7f016a04', cracked : false },
   level96 : { status: '502214a67d22d6', secret: '4b2303b5227e8a40a54d95c4d6a32bdc13d7b3b52cbed7ac31a6', cracked : false }
