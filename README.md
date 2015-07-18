@@ -15,6 +15,12 @@ _This will start up a node http server listening on port **1337**_
 [Challenge-Rotate-Matrix:2advanced](https://github.com/devleague/Challenge-Rotate-Matrix/tree/2advanced) is required to complete this challenge.
 
 Create a node program that loads MatrixRotator as a module.  
+
+use npm to install your matrix rotator as a node_module.  
+```
+npm install -S https://github.com/[YOUR USERNAME]/Challenge-Rotate-Matrix#2advanced
+```
+
 Send http **POST** requests to your running `matrix.server` at `http://localhost:1337`.  
 The **POST** Body only requires one field: `key` with value of your 2d array of hex values (as a urlencoded string).
 
