@@ -21,10 +21,6 @@ var passwords = {
 
 var totalAttempts = 1;
 var attempts = {};
-var serverAddress = require( 'os' ).networkInterfaces( )['en0'].filter(function (inet) {
-  return inet.family === 'IPv4';
-})[0].address;
-
 var Methods = {
   GET : 'GET',
   POST : 'POST'
@@ -46,8 +42,9 @@ function decrypt(key, text){
 }
 
 var server = http.createServer(handleRequest).listen(PORT, function () {
-  console.log('Matrix server started listening on', serverAddress, PORT);
+  console.log('Matrix server started listening on port', PORT);
 });
+
 
 function handleRequest(request, response){
   var responseBody = JSON.stringify({ status : 'fail', message : 'Follow the White Rabbit. POST if you are the ONE.' });
