@@ -59,17 +59,23 @@ function handleRequest(request, response){
       response.statusCode = 401;
       var responseBody = { success : false };
 
-      Object.keys(passwords).filter(function (key) {
-        return !passwords[key].cracked;
-      }).filter(function (key) {
-        return decrypt(bodyVals.key, passwords[key].status) == 'success';
-      }).map(function (keyFound) {
-        return { 'success' : true, 'secret' : decrypt(bodyVals.key, passwords[keyFound].secret) };
-      }).forEach(function (answer) {
-        response.statusCode = 200;
-        responseBody = answer;
-      });
+      if( bodyVals.hasOwnProperty('key') ){
 
+        Object.keys(passwords).filter(function (key) {
+          return !passwords[key].cracked;
+        }).filter(function (key) {
+          return decrypt(bodyVals.key, passwords[key].status) == 'success';
+        }).map(function (keyFound) {
+          return { 'success' : true, 'secret' : decrypt(bodyVals.key, passwords[keyFound].secret) };
+        }).forEach(function (answer) {
+          response.statusCode = 200;
+          responseBody = answer;
+        });
+
+      }else{
+        responseBody.error = 'You must include a POST body field named [key]';
+      }
+      
       if(!attempts.hasOwnProperty(request.connection.remoteAddress)){
         attempts[request.connection.remoteAddress] = 1;
       }
